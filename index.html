@@ -24,7 +24,7 @@
       <a v-bind:href=link>{{title}}</a>
     </h1>
     <p>{{description}}</p>
-    <img height="200" v-bind:src="image" :class="[stock <= 0 ? 'ImageOpacity' : '']"/>
+    <img height="200" v-bind:src="image" :class="[!isOutOfStock ? 'ImageOpacity' : '']"/>
     <br>
     <p v-if="inStock">Disponible</p>
     <p v-else>Plus de stock</p>
@@ -38,8 +38,8 @@
       <li v-for="detail in details">{{ detail }}</li>
     </ul>
     <div>
-      <span v-for="carouselImage in carouselImages" :key="carouselImage.id"
-        @mouseover="updateImage(carouselImage.image)">
+      <span v-for="(carouselImage, index) in carouselImages" :key="carouselImage.id"
+      @mouseover="updateSelectedImage(index)">
         <img height="50" alt="carouselImage.text" :src="carouselImage.image" />
       </span>
     </div>
@@ -47,8 +47,8 @@
     <div v-for="Size in productSize" :key="Size.id" :style="{color: Size.color}">
       {{ Size.text }}
     </div>
-    <button @click="addToCart" :style="styles.roundButton" :disabled="stock <= 0"
-      :class="{ disabledButton: stock <= 0 }">
+    <button @click="addToCart" :style="styles.roundButton" :disabled="!isOutOfStock"
+      :class="{ disabledButton: !isOutOfStock }">
       Ajouter au panier
     </button>
     <button @click="removeFromCart" :style="styles.roundButton">Retirer du panier</button>
