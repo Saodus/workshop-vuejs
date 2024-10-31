@@ -6,7 +6,7 @@ const app = Vue.createApp({
         image : '/assets/images/colombia_de_cote.png',
         link : 'https://www.he-arc.ch',
         inStock : true,
-        stock : 10,
+        stock : 1,
         onSale : true,
         details : ['Doux', 'Moyen', 'Puissant'],
         carouselImages: [
@@ -35,17 +35,30 @@ const app = Vue.createApp({
             {
               id: 1,
               text: 'S',
+              color: '#6C99C6',
             },
             {
               id: 2,
               text: 'M',
+              color: '#BF9E74',
             },
             {
               id: 3,
               text: 'L',
+              color: '#D3B1A2',
             }
           ],
           cart : 0,
+
+          styles: {
+            roundButton: {
+                borderRadius: '20px',
+                padding: '10px',
+                backgroundColor: 'rgb(0, 114, 180)',
+                color: 'white',
+                cursor: 'pointer'
+              },
+            },
       };
       
     },
