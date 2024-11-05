@@ -231,7 +231,7 @@ Puis ajouter un bouton dans le HTML en y ajoutant la directive `v-on` et en incr
 Ajoutons également un peu d'HTML pour afficher la valeur du panier sur notre page.
 
 ```HTML
-<div>Panier({{cart}})</div>
+<div>Panier({{ cart }})</div>
 ```
 
 Ici nous avons effectué l'opération directement dans le HTML, car notre opération est simple. Dans le cas où nous souhaitons effectuer plusieurs actions, il est largement préférable d'utiliser des méthodes. Cela tombe bien, car Vue permet de faire cela.
